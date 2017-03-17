@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     if (this.state.user === undefined)
     {
-        <Login  />
+        return (<Login  />)
     }
     else
     {
