@@ -21,10 +21,7 @@ class Login extends Component {
                         <div className="panel-body">
                             <form onSubmit={this.onLogin.bind(this)}>
                                 <div className="form-group">
-                                    <input className="form-control" placeholder="Username" name="username" autofocus />
-                                </div>
-                                <div className="form-group">
-                                    <input className="form-control" placeholder="Wachtwoord" name="password" type="password" value="" />
+                                    <input className="form-control" placeholder="Üzername" name="username" />
                                 </div>
                                 <input type="submit" className="btn btn-lg btn-success btn-block" value="Inloggen" />
                             </form>
