@@ -14,10 +14,14 @@ class App extends Component {
     }
   }
 
+  setLogin = (email) => {
+    this.setState({user: email});
+  }
+
   render() {
     if (this.state.user === undefined)
     {
-        return (<Login  />)
+        return (<Login loginHandler={this.setLogin} />)
     }
     else
     {
@@ -25,7 +29,7 @@ class App extends Component {
         <div className="App">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to React</h2>
+            <h2>Welcome to React {this.state.user}</h2>
           </div>
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
