@@ -32,10 +32,10 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Feestboek {this.state.user}</h2>
 
-            <Link to={"/profile/" + this.state.user}> Ik</Link> | 
-            <Link to={"/timeline"}> Timeline</Link> | 
-            <Link to={"/newPost"}> New</Link> |
-            <Link to={"/logout"}> Log out</Link>
+            <Link to={"/profile/" + this.state.user}>Ik</Link>{" | "} 
+            <Link to={"/timeline"}>Timeline</Link>{" | "} 
+            <Link to={"/newPost"}>New</Link>{" | "} 
+            <Link to={"/logout"}>Log out</Link>
           </div>
           <div>
             {this.props.children}
