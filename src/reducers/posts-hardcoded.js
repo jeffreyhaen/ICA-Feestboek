@@ -1,6 +1,7 @@
 export default function() {
     return [
         {
+            id: 0,
             author: "Jeffrey",
             title: "Titel (1)",
             description: "Dit is een test bericht (1).",
@@ -14,6 +15,7 @@ export default function() {
             ]
         },
         {
+            id: 1,
             author: "Jevgeni",
             title: "Titel (2)",
             description: "Dit is een test bericht (2).",

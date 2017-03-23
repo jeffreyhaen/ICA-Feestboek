@@ -2,21 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Comment from '../Comment';
-import { onLike } from '../actions/on-like'
+import { onPostLike } from '../actions/on-post'
 
-class PostContainer extends React.Component {
+import CommentContainer from './comment-container'
 
-    onLike(state) {
-        // set like according to state (true / false)
-    }
 
-    onPostComment(event)
-    {
-        event.preventDefault();
-        
-        // post comment and reload component
-    }
+class PostContainer extends Component {
 
     render() {
         return (
@@ -28,34 +19,23 @@ class PostContainer extends React.Component {
                     <br />
                     <span style={{ fontSize: 10 }}>By: {this.props.post.author}</span>{" | "}
                     <span style={{ fontSize: 10 }}>Likes: {this.props.post.likes.length}</span>{" | "}
-                    <span style={{ fontSize: 10 }} onClick={() => this.props.onPostLike(this.props.post)}>Like</span>
+                    <span style={{ fontSize: 10 }} onClick={() => { 
+                        this.props.onPostLike(this.props.post, { name: "Kuzu" /* currently logged in user */ })}}>Like</span>
                 </p>
-                <div>
-                    {this.props.post.comments.map(function (item, i) {
-                        return <Comment comment={item} key={i} />;
-                    })}
-                </div>
-                <div>
-                    <form name="comment" onSubmit={this.onPostComment.bind(this)}>
-                        <textarea name="txtComment" />
-                        <div>
-                            <input type="submit" value="Plaats" />
-                        </div>
-                    </form>
-                </div>
+                <CommentContainer comments={this.props.post.comments}  />
             </div>
         );
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        posts: state.posts,
-    };
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({ onPostLike: onPostLike }, dispatch);
 }
 
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ onPostLike: onLike }, dispatch);
+function mapStateToProps(state, props) {
+    return  {
+        post: (state.post && state.post.id === props.post.id) ? state.post : props.post,
+    };
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(PostContainer);
