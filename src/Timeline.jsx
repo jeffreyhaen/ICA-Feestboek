@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Post from './Post.jsx';
+//import Post from './Post.jsx';
+import PostContainer from './containers/post-container'
 
 class Timeline extends Component {
 
@@ -51,7 +52,7 @@ class Timeline extends Component {
             <div>
                 <h2>Timeline</h2>
                 {this.getPosts().map(function(item, i) {
-                    return <Post post={item} key={i} />;
+                    return <PostContainer post={item} key={i} />;
                 })}
             </div>
         );
