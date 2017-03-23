@@ -5,9 +5,9 @@ export const onCommentLike = (comment, user) => {
     }
 }
 
-export const onCommentAdd = (post, comment) => {
+export const onCommentAdd = (comments, comment) => {
     return {
         type: "ON_COMMENT_ADD",
-        payload: {post: post, comment: comment},
+        payload: {comments: comments, comment: comment},
     }
 }
