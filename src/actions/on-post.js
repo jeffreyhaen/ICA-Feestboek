@@ -1,7 +1,7 @@
-export const onPostLike = (post, user) => {
+export const onPostLike = (postIndex, user) => {
     return {
         type: "ON_POST_LIKE",
-        payload: {post: post, user: user},
+        payload: {postIndex: postIndex, user: user},
     }
 }
 

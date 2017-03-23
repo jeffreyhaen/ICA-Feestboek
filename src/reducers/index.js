@@ -6,9 +6,9 @@ import PostReducer from './posts-reducer';
 import CommentReducer from './comments-reducer';
 
 const allReducers = combineReducers({
-    posts: PostsHardcoded,
+    //posts: PostsHardcoded,
 
-    post: PostReducer,
+    posts: PostReducer,
     comments: CommentReducer,
 });
 

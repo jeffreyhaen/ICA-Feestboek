@@ -8,9 +8,9 @@ class Timeline extends Component {
         return (
             <div>
                 <h2>Timeline</h2>
-                {this.props.posts.map(function(item, i) {
+                {this.props.posts.posts.map(function(item, i) {
                     return (<div key={`${i}_block`}>
-                        <PostContainer post={item} key={`${i}_post`} />
+                        <PostContainer post={item} key={`${i}_post`} index={i} />
                     </div>)
                 })}
             </div>
@@ -20,7 +20,6 @@ class Timeline extends Component {
 
 function mapStateToProps(state) {
     return {
-        post: state.post,
         posts: state.posts,
     };
 }
