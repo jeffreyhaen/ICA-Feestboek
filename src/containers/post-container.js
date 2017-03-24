@@ -23,7 +23,7 @@ class PostContainer extends Component {
                     <br />
                     <span style={{ fontSize: 10 }}>By: {this.props.post.author}</span>{" | "}
                     <span style={{ fontSize: 10 }}>Likes: {this.props.post.likes.length}</span>{" | "}
-                    <span style={{ fontSize: 10 }} onClick={() => { this.props.onPostLike(this.props.index, { name: "Kuzu" /* currently logged in user */ })}}>Like</span>
+                    <span style={{ fontSize: 10 }} onClick={() => { this.props.onPostLike(this.props.index, this.props.user)}}>Like</span>
                 </p>
                 {/*<CommentContainer comments={this.props.post.comments}  />*/}
             </div>
@@ -32,13 +32,17 @@ class PostContainer extends Component {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({ onPostLike: onPostLike }, dispatch);
+    return bindActionCreators(
+        { 
+            onPostLike: onPostLike 
+        }                   , dispatch);
 }
 
 function mapStateToProps(state, props) {
     return  {
         ////post: (state.post && state.post.id === props.post.id) ? state.post : props.post,
         post: state.posts.posts[props.index],
+        user: state.user,
     };
 }
 
